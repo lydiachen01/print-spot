@@ -6,6 +6,6 @@ Objective: Create an interactive map, using the OpenStreetMap API, that shows th
 
 Tech Stack: OpenStreetMap API, Leaflet.JS, HTML/CSS, Typescript, React
 
-Start Date: October 15, 2023
+Start Date: 03/23/2024
 
 End Date: TBD
