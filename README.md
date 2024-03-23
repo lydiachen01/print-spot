@@ -1,4 +1,4 @@
-# tufts-printer-map
+# tufts-printer-map (v2)
 
 Tufts Printing Service has a list of the locations where JumboPrint printers are located, but no other additional information.
 
