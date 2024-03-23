@@ -1,0 +1,27 @@
+{
+  "name": "tufts-printer-map-v2",
+  "version": "1.0.0",
+  "description": "Tufts Printing Service has a list of the locations where JumboPrint printers are located, but no other additional information.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "keywords": [],
+  "author": "lydiachen01",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "18.2.69",
+    "@types/react-dom": "^18.2.22",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@types/geojson": "^7946.0.14",
+    "@types/leaflet": "^1.9.8",
+    "dotenv": "^16.4.5",
+    "leaflet": "^1.9.4",
+    "next": "^14.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
