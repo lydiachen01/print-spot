@@ -6,6 +6,7 @@ const MapComponent = () => {
     const [mapLoaded, setMapLoaded] = useState(false);
 
     useEffect(() => {
+        console.log("Running useEffect()")
         if (typeof window !== 'undefined' && !mapLoaded) {
             maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
 
@@ -19,7 +20,7 @@ const MapComponent = () => {
 
             // Add a marker
             const marker = new maptilersdk.Marker({
-                color: "#FFFFFF",
+                color: "#e3e3e3",
                 draggable: false
             }).setLngLat([-71.119026, 42.407482]).addTo(map);
             setMapLoaded(true);
