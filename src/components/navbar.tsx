@@ -6,9 +6,9 @@ const Navbar = () => {
                 {/* <a href="/#link2" className="underline">Link 2</a>
                 <a href="/#link3" className="underline">Link 3</a> */}
             </div>
-            <div className="font-bold text-2xl flex">
+            <div>
                 {/* Make sure to rebrand - already exists a "Campus Print" */}
-                <a href="/">
+                <a href="/" className="font-bold text-2xl flex">
                     <span>CAMPUS</span>
                     <img src="icons8-marker-30.png" className="mt-1.5 mx-1 h-[22px]"></img>
                     <span>PRINT</span>
