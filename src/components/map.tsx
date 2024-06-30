@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import * as maptilersdk from '@maptiler/sdk';
 import 'leaflet/dist/leaflet.css';
 
 const MapComponent = () => {
@@ -6,33 +7,26 @@ const MapComponent = () => {
 
     useEffect(() => {
         if (typeof window !== 'undefined' && !mapLoaded) {
-            import('leaflet').then(L => {
-                const { latLng, tileLayer } = L;
+            maptilersdk.config.apiKey as string = process.env.NEXT_PUBLIC_API_KEY;
 
-                /* Initialize map */
-                const options = {
-                    center: latLng(42.407482, -71.119026),
-                    zoom: 17,
-                };
-
-                const mymap = L.map('map', options);
-
-                /* Load tile layer */
-                const key = process.env.NEXT_PUBLIC_API_KEY; // Access environment variable
-                tileLayer(`https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=${key}`, {
-                    tileSize: 512,
-                    zoomOffset: -1,
-                    minZoom: 1,
-                    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors',
-                    crossOrigin: true
-                }).addTo(mymap);
-
-                setMapLoaded(true);
+            const map = new maptilersdk.Map({
+                container: 'map',
+                center: [-71.119026, 42.407482],
+                zoom: 16,
+                style: maptilersdk.MapStyle.STREETS,
+                hash: true,
             });
-        }
-    }, [mapLoaded]);
 
-    return <div id="map" style={{ height: '600px', maxWidth: "800px" }}></div>;
+            // Add a marker
+            const marker = new maptilersdk.Marker({
+                color: "#FFFFFF",
+                draggable: false
+            }).setLngLat([-71.119026, 42.407482]).addTo(map);
+            setMapLoaded(true);
+        }
+    }, []);
+
+    return <div id="map" style={{ height: '600px' }}></div>;
 };
 
 export default MapComponent;

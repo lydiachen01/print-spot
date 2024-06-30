@@ -3,9 +3,10 @@ import MapComponent from '../components/map';
 
 const Homepage: React.FC = () => {
     return (
-        <div>
-            <h1 className='bg-slate-500 text-white center'>Printer Map</h1>
+        <div className='bg-slate-500'>
+            <div className='text-white text-center text-lg p-5'>Printer Map</div>
             <MapComponent />
+            <div className='h-52'></div>
         </div>
     );
 };
