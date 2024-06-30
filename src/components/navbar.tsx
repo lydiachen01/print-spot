@@ -8,9 +8,11 @@ const Navbar = () => {
             </div>
             <div className="font-bold text-2xl flex">
                 {/* Make sure to rebrand - already exists a "Campus Print" */}
-                <span>CAMPUS</span>
-                <img src="icons8-marker-30.png" className="mt-1.5 mx-1 h-[22px]"></img>
-                <span>PRINT</span>
+                <a href="/">
+                    <span>CAMPUS</span>
+                    <img src="icons8-marker-30.png" className="mt-1.5 mx-1 h-[22px]"></img>
+                    <span>PRINT</span>
+                </a>
             </div>
             <div>
                 <button className="px-14 py-2 rounded bg-black text-white ml-4">Login</button>
