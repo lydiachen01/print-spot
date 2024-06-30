@@ -7,7 +7,7 @@ const MapComponent = () => {
 
     useEffect(() => {
         if (typeof window !== 'undefined' && !mapLoaded) {
-            maptilersdk.config.apiKey as string = process.env.NEXT_PUBLIC_API_KEY;
+            maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
 
             const map = new maptilersdk.Map({
                 container: 'map',
