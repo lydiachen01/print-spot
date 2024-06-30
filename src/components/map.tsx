@@ -6,26 +6,46 @@ const MapComponent = () => {
     const [mapLoaded, setMapLoaded] = useState(false);
 
     useEffect(() => {
-        console.log("Running useEffect()")
-        if (typeof window !== 'undefined' && !mapLoaded) {
-            maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
+        let map = null;
 
-            const map = new maptilersdk.Map({
-                container: 'map',
-                center: [-71.119026, 42.407482],
-                zoom: 16,
-                style: maptilersdk.MapStyle.STREETS,
-                hash: true,
-            });
+        const successCallback = (pos: any) => {
+            const { latitude, longitude } = pos.coords;
 
-            // Add a marker
-            const marker = new maptilersdk.Marker({
-                color: "#e3e3e3",
-                draggable: false
-            }).setLngLat([-71.119026, 42.407482]).addTo(map);
-            setMapLoaded(true);
-        }
-    }, []);
+            // Initialize the map only once
+            if (!mapLoaded) {
+                maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
+
+                map = new maptilersdk.Map({
+                    container: 'map',
+                    center: [latitude, longitude],
+                    zoom: 18,
+                    style: maptilersdk.MapStyle.STREETS,
+                    hash: true,
+                });
+
+                // Add a marker
+                const marker = new maptilersdk.Marker({
+                    color: "#e3e3e3",
+                    draggable: false
+                }).setLngLat([longitude, latitude]).addTo(map);
+
+                setMapLoaded(true);
+            }
+        };
+
+        const errorCallback = (err: any) => {
+            console.error('Error retrieving geolocation:', err);
+            // Handle error if needed
+        };
+
+        // Start watching geolocation
+        const watchId = navigator.geolocation.watchPosition(successCallback, errorCallback);
+
+        // Clean up the watcher when component unmounts
+        return () => {
+            navigator.geolocation.clearWatch(watchId);
+        };
+    }, [mapLoaded]);
 
     return <div id="map" style={{ height: '600px' }}></div>;
 };
