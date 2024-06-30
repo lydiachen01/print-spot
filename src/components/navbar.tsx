@@ -2,7 +2,7 @@ const Navbar = () => {
     return (
         <nav className="flex justify-between items-center py-4 px-6">
             <div className="flex space-x-4">
-                <a href="/#link1" className="text-lg">Tufts University</a>
+                <a href="/#link1">Tufts University</a>
                 {/* <a href="/#link2" className="underline">Link 2</a>
                 <a href="/#link3" className="underline">Link 3</a> */}
             </div>
