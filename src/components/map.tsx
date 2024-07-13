@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import * as maptilersdk from '@maptiler/sdk';
-import Modal from './modal';
 
 const MapComponent = () => {
     const [mapLoaded, setMapLoaded] = useState(false);

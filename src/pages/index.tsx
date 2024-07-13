@@ -1,7 +1,7 @@
 import React from 'react';
-import MapComponent from '../components/map';
-import Navbar from '@/components/navbar';
-import Modal from '@/components/modal';
+import MapComponent from '../components/Map';
+import Navbar from '@/components/Navbar';
+import Modal from '@/components/Modal';
 
 const Homepage: React.FC = () => {
     return (

@@ -1,4 +1,4 @@
-import ResetButton from "./reset"
+import ResetButton from "./Reset"
 
 const Navbar = () => {
     return (
