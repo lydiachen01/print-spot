@@ -1,5 +1,5 @@
 function refresh() {
-    window.location.href = "http://localhost:3000/#18/42.3706/-71.096"
+    window.location.href = "http://localhost:3000/#18/42.3706/-71.096" ? "https://printspot.vercel.app/#18/42.3706/-71.096"
 }
 
 const ResetButton = () => {
