@@ -1,25 +1,14 @@
 import React, { useState } from "react";
 
-const Modal = () => {
+const Modal:React.FC = () => {
     const [reportIssue, setReportIssue] = useState(false);
     const [showModal, setShowModal] = useState(true); // Initially show the modal
     const [formSubmission, setFormSubmission] = useState(false);
 
-    const clickReportIssue = () => {
-        setReportIssue(true);
-    }
-
-    const closeModal = () => {
-        setShowModal(false);
-    }
-
-    const returnBack = () => {
-        setReportIssue(false);
-    }
-
-    const submitReport = () => {
-        setFormSubmission(true);
-    }
+    const clickReportIssue = () => { setReportIssue(true)}
+    const closeModal = () => { setShowModal(false) }
+    const returnBack = () => { setReportIssue(false) }
+    const submitReport = () => { setFormSubmission(true) }
 
     return (
         <div>
@@ -51,20 +40,22 @@ const Modal = () => {
                                     </div>
                                     <div className="font-bold text-xl pr-[165px]">Report Issue</div>
                                     <form>
-                                        <div className="pt-4">
+                                        {/* <div className="pt-4">
                                             <label>Name: </label>
                                             <input className="border border-current rounded-lg p-2 w-72"></input>
-                                        </div>
-                                        <div className="pt-2">
-                                            <label>Email: </label>
-                                            <input className="border border-current rounded-lg p-2 w-72"></input>
+                                        </div> */}
+                                        <div className="pt-3">
+                                            <div>Email: </div>
+                                            <input className="border border-current rounded-lg p-2 w-[65%]"></input>
+                                            <label className="pl-2">@tufts.edu</label>
                                         </div>
                                         <div className="pt-4">
                                             <div className="pb-1">Comment:</div>
                                             <textarea className="border border-current rounded-lg w-72 h-56"></textarea>
                                         </div>
                                     </form>
-                                    <button onClick={submitReport} className="left border border-black rounded-lg mt-8 px-4 py-2 hover:bg-black hover:text-white">Submit Report</button>
+                                    <button onClick={submitReport} className="left border border-black \ 
+                                    rounded-lg mt-8 px-4 py-2 hover:bg-white hover:text-default bg-black text-white">Submit Report</button>
                                 </div>
                             )}
                         </div>

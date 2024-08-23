@@ -1,95 +1,66 @@
-import React, { useEffect, useState } from 'react';
-import * as maptilersdk from '@maptiler/sdk';
 
-const MapComponent = () => {
-    const [mapLoaded, setMapLoaded] = useState(false);
-    const [map, setMap] = useState<maptilersdk.Map | null>(null); // State to hold the map instance
-    const [watchId, setWatchId] = useState(Number);
+import React, { useRef, useEffect, useState } from 'react';
+import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk";
+import L, { Map, Icon } from "leaflet"; // Import Map and Icon from Leaflet
+import "leaflet/dist/leaflet.css";
+import ReactDOM from 'react-dom';
+import Modal from './LaptopModal';
 
-    maptilersdk.config.apiKey = process.env.NEXT_PUBLIC_API_KEY as string;
+const mapWrap = {
+    position: 'relative',
+    width: '100%',
+    height: '60vh'
+};
+
+const mapStyle = {
+    position: 'absolute',
+    width: '100%',
+    height: '100%'
+};
+
+const MapComponent: React.FC = () => {
+    const mapContainer = useRef<HTMLElement | null>(null);
+    const mapInstance = useRef<Map | null>(null);
+    const center = { lng: -71.096, lat: 42.3706 };
+    const [zoom] = useState<number>(18);
 
     useEffect(() => {
-        // Function to initialize the map
-        const initializeMap = (latitude: number, longitude: number) => {
-            const newMap = new maptilersdk.Map({
-                container: 'map',
-                center: [longitude, latitude],
-                zoom: 18,
-                style: maptilersdk.MapStyle.STREETS,
-                hash: true,
-            });
+        if (!mapContainer.current || mapInstance.current) return;
 
-            // Add a marker
-            const marker = new maptilersdk.Marker({
-                draggable: false
-            })
-                .setLngLat([longitude, latitude])
-                .addTo(newMap);
+        mapInstance.current = L.map(mapContainer.current, {
+            center: [center.lat, center.lng],
+            zoom: zoom
+        });
 
-            // newMap.on('load', function () {
-            //     newMap.addSource('printer', {
-            //         type: 'geojson',
-            //         data: 'https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_10m_ports.geojson'
-            //     })
+        new MaptilerLayer({
+            apiKey: process.env.NEXT_PUBLIC_API_KEY as string,
+        }).addTo(mapInstance.current);
 
-            //     newMap.loadImage('icons8-printer-48.png', function (err, image: any) {
-            //         if (err) throw err;
-            //         newMap.addImage('printer', image);
-            //     })
+        const PrinterIcon = new Icon({
+            iconUrl: 'icons8-printer-48.png',
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+            popupAnchor: [0, -40]
+        });
 
-            //     newMap.addLayer({
-            //         'id': 'printer',
-            //         'type': 'symbol',
-            //         'source': 'printer',
-            //         'layout': {
-            //             'icon-image': 'printer',
-            //             'icon-size': ['*', ['get', 'scalerank'], 0.01]
-            //         },
-            //         'paint': {}
-            //     });
-            // })
-
-            setMap(newMap); // Set the map instance to state
-            setMapLoaded(true); // Mark map as loaded
-        };
-
-        // Function to handle successful geolocation
-        const success = (pos: any) => {
-            const { latitude, longitude } = pos.coords;
-            // const longitude = -69.92355713
-            // const latitude = 12.4375
-
-            if (!mapLoaded) {
-                initializeMap(latitude, longitude);
-            } else {
-                if (map) {
-                    map.setCenter([latitude, longitude], 18);
-                }
-            }
-        };
-
-        // Function to handle errors in geolocation
-        const error = (err: any) => {
-            console.error('Error retrieving geolocation:', err);
-        };
-
-        // Start watching geolocation on component mount
-        if (!watchId) {
-            const id = navigator.geolocation.watchPosition(success, error);
-            setWatchId(id); // Set watchId to state
+        const openModel = (e: any) => {
+            // const popup = L.popup();
+            // popup.setLatLng(e.latlng).setContent('<div id="popupContainer"></div>').openOn(mapInstance.current!);
+            // ReactDOM.render(<Modal />, document.getElementById('popupContainer'));
+            console.log("Finished handling click")
         }
 
-        // Clean up the watcher on component unmount
-        return () => {
-            if (watchId) {
-                navigator.geolocation.clearWatch(watchId);
-                setWatchId(-1);
-            }
-        };
-    }, []);
+        L.marker([center.lat, center.lng], { icon: PrinterIcon })
+            .addTo(mapInstance.current)
+            .on('click', openModel);
 
-    return <div id="map" style={{ height: '500px' }}>
-    </div>;
+    }, [center.lng, center.lat, zoom]);
+
+    return (
+        <div style={mapWrap}>
+            <div ref={mapContainer} style={mapStyle} />
+        </div>
+    );
 };
 
 export default MapComponent;
