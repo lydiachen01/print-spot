@@ -1,13 +1,12 @@
 import React from 'react';
 // import MapComponent from '../components/map';
-import Navbar from '@/components/navbar';
-import Modal from '@/components/modal';
+import Navbar from '@/components/Navbar';
 
 import dynamic from 'next/dynamic';
 import MobileTab from '@/components/MobileTab';
 import MobileDrawer from '@/components/MobileDrawer';
 
-const MapComponent = dynamic(() => import('../components/map'), {
+const MapComponent = dynamic(() => import('../components/Map'), {
     ssr: false // Ensure Leaflet components are not rendered on the server
 });
 
