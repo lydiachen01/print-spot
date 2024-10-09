@@ -15,7 +15,7 @@ const collegesInBoston = [
     // 'UMass Boston',
 ];
 
-const Navbar = () => {
+const Navbar:React.FC = () => {
     const [mobileState, setMobileState] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);
     const [openCampus, setOpenCampus] = useState(false);
@@ -88,7 +88,6 @@ const Navbar = () => {
                 <nav className="flex justify-between items-center py-4 px-6 border border-double border-b-black border-b-4">
                     <div className="flex space-x-4">
                         <Link href="/#link1" className="hover:underline">Tufts University</Link>
-                        {/* <a href="/#link1" className="hover:underline">Tufts University</a> */}
                     </div>
                     <Logo />
                     <div>
