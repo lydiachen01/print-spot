@@ -18,9 +18,8 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": [ "./src/*" ], 
+      "@/components/*": ["src/components/*"]
     }
   },
   "include": [
@@ -30,8 +29,5 @@
   ],
   "exclude": [
     "node_modules"
-  ], 
-  "paths": {
-    "@/components/*": ["src/components/*"]
-  }
+  ]
 }
