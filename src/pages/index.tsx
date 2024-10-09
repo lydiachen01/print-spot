@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 // @ts-ignore
 import Navbar from '@/components/Navbar';
 
+// @ts-ignore
 const MapComponent = dynamic(() => import('@/components/Map'), {
     ssr: false // Ensure Leaflet components are not rendered on the server
 });
