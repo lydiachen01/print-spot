@@ -2,7 +2,6 @@ import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useEffect, useState } from "react";
 import { Layout } from "@maptiler/sdk";
-import LayoutToggle from "./LayoutToggle";
 import Logo from "./Logo";
 
 const collegesInBoston = [
