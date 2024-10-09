@@ -5,6 +5,7 @@ import MobileTab from '@/components/MobileTab';
 import MobileDrawer from '@/components/MobileDrawer';
 import LaptopModal from '@/components/LaptopModal';
 import Footer from '@/components/Footer';
+// @ts-ignore
 import Navbar from '@/components/Navbar';
 
 const MapComponent = dynamic(() => import('../components/Map'), {
