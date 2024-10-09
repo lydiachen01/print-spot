@@ -15,7 +15,7 @@ const Homepage: React.FC = () => {
     return (
         <div>
             {/* <Navbar /> */}
-            <MapComponent />
+            {/* <MapComponent /> */}
             <LaptopModal />
             {/* <MobileDrawer /> */}
             {/* <Modal /> */}
