@@ -6,4 +6,4 @@ const HistoryTab = () => {
     )
 }
 
-export default HistoryTaba
+export default HistoryTab
