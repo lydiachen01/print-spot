@@ -1,6 +1,6 @@
 
 import React, { useRef, useEffect, useState } from 'react';
-// import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk";
+import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk";
 import L, { Map, Icon } from "leaflet"; // Import Map and Icon from Leaflet
 import "leaflet/dist/leaflet.css";
 import ReactDOM from 'react-dom';
@@ -8,14 +8,16 @@ import Modal from './LaptopModal';
 import LaptopModal from './LaptopModal';
 import HistoryTab from './HistoryTab';
 
-const mapWrap = {
+import { CSSProperties } from 'react';
+
+const mapWrap: CSSProperties = {
     position: 'relative',
     margin: 'auto',
     width: '90%',
     height: '90vh'
 };
 
-const mapStyle = {
+const mapStyle: CSSProperties = {
     position: 'absolute',
     width: '100%',
     height: '100%'
@@ -32,7 +34,7 @@ const legends = {
 }
 
 const MapComponent: React.FC = () => {
-    const mapContainer = useRef<HTMLElement | null>(null);
+    const mapContainer = useRef<HTMLDivElement | null>(null);
     const mapInstance = useRef<Map | null>(null);
     const center = { lng: -71.096, lat: 42.3706 };
     const [zoom] = useState<number>(18);
