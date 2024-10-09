@@ -1,6 +1,6 @@
 import Logo from "./Logo"
 
-const Footer = () => {
+const Footer : React.FC= () => {
     return (
         <div className="bg-black pb-24 pt-20 px-20 grid md:grid-cols-3">
             <div className="text-white">

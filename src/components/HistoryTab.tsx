@@ -1,4 +1,4 @@
-const HistoryTab = () => {
+const HistoryTab:React.FC = () => {
     return (
         <div className="rounded">
             aaaa

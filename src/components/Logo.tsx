@@ -1,4 +1,4 @@
-const Logo = () => {
+const Logo: React.FC = () => {
     return (
         <div className="font-bold text-2xl flex items-center">
             <span>PRINT</span>

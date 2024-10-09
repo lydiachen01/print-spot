@@ -14,7 +14,7 @@ const collegesInBoston = [
     // 'UMass Boston',
 ];
 
-const Navbar = () => {
+const Navbar: React.FC<> = () => {
     const [mobileState, setMobileState] = useState(false);
     const [openMenu, setOpenMenu] = useState(false);
     const [openCampus, setOpenCampus] = useState(false);
