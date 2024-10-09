@@ -30,5 +30,8 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ], 
+  "paths": {
+    "@/components/*": ["src/components/*"]
+  }
 }

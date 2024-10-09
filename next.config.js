@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 /* eslint-disable @typescript-eslint/no-var-requires */
+const path = require('path');
+
 const nextConfig = {
     webpack: config => {
+        // Add path alias for '@'
+        config.resolve.alias['@'] = path.resolve(__dirname, 'src'); // Adjust if your source directory is different
+
         config.resolve.fallback = {
             fs: false,
             net: false,
