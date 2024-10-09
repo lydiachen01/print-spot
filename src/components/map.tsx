@@ -1,6 +1,6 @@
 
 import React, { useRef, useEffect, useState } from 'react';
-import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk";
+// import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk";
 import L, { Map, Icon } from "leaflet"; // Import Map and Icon from Leaflet
 import "leaflet/dist/leaflet.css";
 import ReactDOM from 'react-dom';
