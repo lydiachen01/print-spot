@@ -19,8 +19,7 @@
     "jsx": "preserve",
     "baseUrl": ".", // Set the base URL
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/*": ["src/components/*"] // Ensure this is included
+      "@/*": ["src/*"]    
     }
   },
   "include": [
