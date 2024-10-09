@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 // import MobileDrawer from '@/components/MobileDrawer';
 import LaptopModal from '@/components/LaptopModal';
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
+// import Navbar from '@/components/Navbar';
 
 const MapComponent = dynamic(() => import('@/components/Map'), {
     ssr: false // Ensure Leaflet components are not rendered on the server
@@ -14,7 +14,7 @@ const MapComponent = dynamic(() => import('@/components/Map'), {
 const Homepage: React.FC = () => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <MapComponent />
             <LaptopModal />
             {/* <MobileDrawer /> */}
