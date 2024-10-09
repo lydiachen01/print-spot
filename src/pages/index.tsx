@@ -6,9 +6,9 @@ import LaptopModal from '@/components/LaptopModal';
 import Footer from '@/components/Footer';
 // import Navbar from '@/components/Navbar';
 
-const MapComponent = dynamic(() => import('@/components/Map'), {
-    ssr: false // Ensure Leaflet components are not rendered on the server
-});
+// const MapComponent = dynamic(() => import('@/components/Map'), {
+//     ssr: false // Ensure Leaflet components are not rendered on the server
+// });
 
 
 const Homepage: React.FC = () => {
