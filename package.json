@@ -4,19 +4,27 @@
   "description": "Tufts Printing Service has a list of the locations where JumboPrint printers are located, but no other additional information.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "lydiachen01",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.12.0",
     "@maptiler/leaflet-maptilersdk": "^2.0.0",
     "@types/react": "18.2.69",
     "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
     "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "14.2.15",
+    "globals": "^15.11.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.3",
+    "typescript-eslint": "^8.8.1",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
@@ -28,12 +36,14 @@
     "@mui/material": "^5.16.7",
     "@types/geojson": "^7946.0.14",
     "@types/leaflet": "^1.9.12",
+    "@typescript-eslint/eslint-plugin": "^5.x.x",
+    "@typescript-eslint/parser": "^5.x.x",
     "dotenv": "^16.4.5",
+    "eslint": "^8.x.x",
     "leaflet": "^1.9.4",
     "next": "^14.1.4",
     "postcss-loader": "^8.1.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript-eslint": "^8.8.1"
+    "react-dom": "^18.2.0"
   }
 }

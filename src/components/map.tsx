@@ -3,10 +3,10 @@ import React, { useRef, useEffect, useState } from 'react';
 import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk";
 import L, { Map, Icon } from "leaflet"; // Import Map and Icon from Leaflet
 import "leaflet/dist/leaflet.css";
-import ReactDOM from 'react-dom';
-import Modal from './LaptopModal';
-import LaptopModal from './LaptopModal';
-import HistoryTab from './HistoryTab';
+// import ReactDOM from 'react-dom';
+// import Modal from './LaptopModal';
+// import LaptopModal from './LaptopModal';
+// import HistoryTab from './HistoryTab';
 
 import { CSSProperties } from 'react';
 
@@ -23,15 +23,15 @@ const mapStyle: CSSProperties = {
     height: '100%'
 };
 
-const legends = {
-    position: "absolute", // Changed to absolute for better control
-    bottom: '10px',       // Positioning the legends at the bottom
-    right: '10px',        // Adjust as needed
-    zIndex: 1000,         // Ensure it stays on top of the map
-    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Add a semi-transparent background
-    padding: '10px',
-    borderRadius: '5px'
-}
+// const legends = {
+//     position: "absolute", // Changed to absolute for better control
+//     bottom: '10px',       // Positioning the legends at the bottom
+//     right: '10px',        // Adjust as needed
+//     zIndex: 1000,         // Ensure it stays on top of the map
+//     backgroundColor: 'rgba(255, 255, 255, 0.8)', // Add a semi-transparent background
+//     padding: '10px',
+//     borderRadius: '5px'
+// }
 
 const MapComponent: React.FC = () => {
     const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -58,7 +58,7 @@ const MapComponent: React.FC = () => {
             popupAnchor: [0, -40]
         });
 
-        const openModel = (e: any) => {
+        const openModel = () => {
             // const popup = L.popup();
             // popup.setLatLng(e.latlng).setContent('<div id="popupContainer"></div>').openOn(mapInstance.current!);
             // ReactDOM.render(<Modal />, document.getElementById('popupContainer'));
