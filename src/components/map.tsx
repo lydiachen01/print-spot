@@ -33,7 +33,7 @@ const legends = {
     borderRadius: '5px'
 }
 
-const MapComponent: React.FC = () => {
+const MapComponent = () => {
     const mapContainer = useRef<HTMLDivElement | null>(null);
     const mapInstance = useRef<Map | null>(null);
     const center = { lng: -71.096, lat: 42.3706 };
