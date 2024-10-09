@@ -1,5 +1,5 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 // import MobileTab from '@/components/MobileTab';
 // import MobileDrawer from '@/components/MobileDrawer';
 import LaptopModal from '@/components/LaptopModal';
