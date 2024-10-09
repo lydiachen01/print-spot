@@ -5,11 +5,14 @@ import L, { Map, Icon } from "leaflet"; // Import Map and Icon from Leaflet
 import "leaflet/dist/leaflet.css";
 import ReactDOM from 'react-dom';
 import Modal from './LaptopModal';
+import LaptopModal from './LaptopModal';
+import HistoryTab from './HistoryTab';
 
 const mapWrap = {
     position: 'relative',
-    width: '100%',
-    height: '60vh'
+    margin: 'auto',
+    width: '90%',
+    height: '90vh'
 };
 
 const mapStyle = {
@@ -17,6 +20,16 @@ const mapStyle = {
     width: '100%',
     height: '100%'
 };
+
+const legends = {
+    position: "absolute", // Changed to absolute for better control
+    bottom: '10px',       // Positioning the legends at the bottom
+    right: '10px',        // Adjust as needed
+    zIndex: 1000,         // Ensure it stays on top of the map
+    backgroundColor: 'rgba(255, 255, 255, 0.8)', // Add a semi-transparent background
+    padding: '10px',
+    borderRadius: '5px'
+}
 
 const MapComponent: React.FC = () => {
     const mapContainer = useRef<HTMLElement | null>(null);
@@ -59,6 +72,10 @@ const MapComponent: React.FC = () => {
     return (
         <div style={mapWrap}>
             <div ref={mapContainer} style={mapStyle} />
+            {/* <div style={legends}>
+                <HistoryTab />
+                <Modal />
+            </div> */}
         </div>
     );
 };

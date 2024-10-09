@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar';
 import dynamic from 'next/dynamic';
 import MobileTab from '@/components/MobileTab';
 import MobileDrawer from '@/components/MobileDrawer';
+import LaptopModal from '@/components/LaptopModal';
+import Footer from '@/components/Footer';
 
 const MapComponent = dynamic(() => import('../components/Map'), {
     ssr: false // Ensure Leaflet components are not rendered on the server
@@ -16,8 +18,10 @@ const Homepage: React.FC = () => {
         <div>
             <Navbar />
             <MapComponent />
-            <MobileDrawer />
+            <LaptopModal />
+            {/* <MobileDrawer /> */}
             {/* <Modal /> */}
+            <Footer />
         </div>
     );
 };

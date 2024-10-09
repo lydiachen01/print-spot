@@ -1,6 +1,9 @@
 import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Collapse } from "@mui/material";
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useEffect, useState } from "react";
+import { Layout } from "@maptiler/sdk";
+import LayoutToggle from "./LayoutToggle";
+import Logo from "./Logo";
 
 const collegesInBoston = [
     // 'Boston University',
@@ -74,7 +77,7 @@ const Navbar: React.FC = () => {
     return (
         <>
             {mobileState ? (
-                <nav className="flex p-4 justify-between">
+                <nav className="flex p-4 justify-between bg-white">
                     <div className="font-bold text-xl flex items-center">
                         <span>PRINT</span>
                         <img src="icons8-marker-30.png" className="mt-0.5 mx-0.5 h-[16px]" alt="marker" />
@@ -93,17 +96,13 @@ const Navbar: React.FC = () => {
                     </Drawer>
                 </nav>
             ) : (
-                <nav className="flex justify-between items-center py-4 px-6">
+                <nav className="flex justify-between items-center py-4 px-6 border border-double border-b-black border-b-4">
                     <div className="flex space-x-4">
                         <a href="/#link1" className="hover:underline">Tufts University</a>
                         {/* <a href="/#link2" className="underline">Link 2</a>
                         <a href="/#link3" className="underline">Link 3</a> */}
                     </div>
-                    <div className="font-bold text-2xl flex items-center">
-                        <span>PRINT</span>
-                        <img src="icons8-marker-30.png" className="mt-1.5 mx-1 h-[22px]" alt="marker" />
-                        <span>SPOT</span>
-                    </div>
+                    <Logo />
                     <div>
                         <button className="px-4 py-2 rounded bg-black text-white ml-4">Login</button>
                         {/* <ResetButton /> */}
