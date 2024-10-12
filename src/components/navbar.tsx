@@ -1,19 +1,19 @@
-import { Box, Drawer, List, ListItem, ListItemButton, ListItemText, Collapse } from "@mui/material";
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
+// import { Box, Drawer, List, ListItem, ListItemButton, ListItemText, Collapse } from "@mui/material";
+// import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useEffect, useState } from "react";
 import Link from 'next/link';
 import Image from "next/image";
 import Logo from "./Logo";
 
-const collegesInBoston = [
-    // 'Boston University',
-    // 'Harvard University',
-    // 'MIT',
-    // 'Northeastern University',
-    // 'Boston College',
-    'Tufts University',
-    // 'UMass Boston',
-];
+// const collegesInBoston = [
+//     // 'Boston University',
+//     // 'Harvard University',
+//     // 'MIT',
+//     // 'Northeastern University',
+//     // 'Boston College',
+//     'Tufts University',
+//     // 'UMass Boston',
+// ];
 
 const Navbar:React.FC = () => {
     const [mobileState, setMobileState] = useState(false);
@@ -75,14 +75,14 @@ const Navbar:React.FC = () => {
                     <button onClick={() => setOpenMenu(true)} className="focus:outline-none">
                         <Image className="mt-1 space-x-3 h-[25px]" src="/menu.png" alt="menu" width={25} height={25} />
                     </button>
-                    <Drawer
+                    {/* <Drawer
                         anchor='right'
                         open={openMenu}
                         onClose={() => setOpenMenu(false)}
                         sx={{ '& .MuiDrawer-paper': { height: '100vh' } }}
                     >
-                        {/* {list} */}
-                    </Drawer>
+                        {list}
+                    </Drawer> */}
                 </nav>
             ) : (
                 <nav className="flex justify-between items-center py-4 px-6 border border-double border-b-black border-b-4">
