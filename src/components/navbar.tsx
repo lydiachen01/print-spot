@@ -81,7 +81,7 @@ const Navbar:React.FC = () => {
                         onClose={() => setOpenMenu(false)}
                         sx={{ '& .MuiDrawer-paper': { height: '100vh' } }}
                     >
-                        {list}
+                        {/* {list} */}
                     </Drawer>
                 </nav>
             ) : (
