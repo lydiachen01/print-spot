@@ -1,19 +1,12 @@
-import { Box, Drawer, List, ListItem, ListItemButton, ListItemText, Collapse } from "@mui/material";
+import { Box, List, ListItem, ListItemButton, ListItemText, Collapse } from "@mui/material";
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useEffect, useState } from "react";
 import Link from 'next/link';
 import Image from "next/image";
 import Logo from "./Logo";
+import dynamic from "next/dynamic";
 
-const collegesInBoston = [
-    // 'Boston University',
-    // 'Harvard University',
-    // 'MIT',
-    // 'Northeastern University',
-    // 'Boston College',
-    'Tufts University',
-    // 'UMass Boston',
-];
+const Drawer = dynamic(() => import('@mui/material/Drawer'), { ssr: false });
 
 const Navbar:React.FC = () => {
     const [mobileState, setMobileState] = useState(false);
@@ -28,6 +21,16 @@ const Navbar:React.FC = () => {
         window.addEventListener('resize', handleResize);
         return () => { window.removeEventListener('resize', handleResize) }
     }, []);
+
+    const collegesInBoston = [
+        // 'Boston University',
+        // 'Harvard University',
+        // 'MIT',
+        // 'Northeastern University',
+        // 'Boston College',
+        'Tufts University',
+        // 'UMass Boston',
+    ];    
 
     const list = (
         <Box
