@@ -17,10 +17,10 @@ import Logo from "./Logo";
 
 const Navbar:React.FC = () => {
     const [mobileState, setMobileState] = useState(false);
-    const [openMenu, setOpenMenu] = useState(false);
-    const [openCampus, setOpenCampus] = useState(false);
+    // const [openMenu, setOpenMenu] = useState(false);
+    // const [openCampus, setOpenCampus] = useState(false);
 
-    const handleCampusClick = () => { setOpenCampus(!openCampus) }
+    // const handleCampusClick = () => { setOpenCampus(!openCampus) }
 
     useEffect(() => {
         const handleResize = () => { setMobileState(window.innerWidth < 480) }
@@ -72,9 +72,9 @@ const Navbar:React.FC = () => {
                         <Image src="/icons8-marker-30.png" className="mt-0.5 mx-0.5 h-[16px]" alt="marker" width={16} height={16} />
                         <span>SPOT</span>
                     </div>
-                    <button onClick={() => setOpenMenu(true)} className="focus:outline-none">
-                        <Image className="mt-1 space-x-3 h-[25px]" src="/menu.png" alt="menu" width={25} height={25} />
-                    </button>
+                    {/* <button onClick={() => setOpenMenu(true)} className="focus:outline-none"> */}
+                        {/* <Image className="mt-1 space-x-3 h-[25px]" src="/menu.png" alt="menu" width={25} height={25} /> */}
+                    {/* </button> */}
                     {/* <Drawer
                         anchor='right'
                         open={openMenu}
