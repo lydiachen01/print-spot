@@ -29,39 +29,39 @@ const Navbar:React.FC = () => {
         return () => { window.removeEventListener('resize', handleResize) }
     }, []);
 
-    const list = (
-        <Box
-            sx={{ width: 'auto' }}
-            role="presentation"
-            onClick={() => setOpenMenu(false)}
-        >
-            <List>
-                <ListItem disablePadding>
-                    <ListItemButton onClick={handleCampusClick}>
-                        <ListItemText primary="Campus" />
-                        {openCampus ? <ExpandLess /> : <ExpandMore />}
-                    </ListItemButton>
-                </ListItem>
-                <Collapse in={openCampus} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        {collegesInBoston.map((college) => (
-                            <ListItem key={college} disablePadding sx={{ pl: 4 }}>
-                                <ListItemButton>
-                                    <ListItemText primary={college} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                </Collapse>
+    // const list = (
+    //     <Box
+    //         sx={{ width: 'auto' }}
+    //         role="presentation"
+    //         onClick={() => setOpenMenu(false)}
+    //     >
+    //         <List>
+    //             <ListItem disablePadding>
+    //                 <ListItemButton onClick={handleCampusClick}>
+    //                     <ListItemText primary="Campus" />
+    //                     {openCampus ? <ExpandLess /> : <ExpandMore />}
+    //                 </ListItemButton>
+    //             </ListItem>
+    //             <Collapse in={openCampus} timeout="auto" unmountOnExit>
+    //                 <List component="div" disablePadding>
+    //                     {collegesInBoston.map((college) => (
+    //                         <ListItem key={college} disablePadding sx={{ pl: 4 }}>
+    //                             <ListItemButton>
+    //                                 <ListItemText primary={college} />
+    //                             </ListItemButton>
+    //                         </ListItem>
+    //                     ))}
+    //                 </List>
+    //             </Collapse>
 
-                <ListItem disablePadding>
-                    <ListItemButton>
-                        <ListItemText primary="Feedback" />
-                    </ListItemButton>
-                </ListItem>
-            </List>
-        </Box>
-    );
+    //             <ListItem disablePadding>
+    //                 <ListItemButton>
+    //                     <ListItemText primary="Feedback" />
+    //                 </ListItemButton>
+    //             </ListItem>
+    //         </List>
+    //     </Box>
+    // );
 
     return (
         <>
