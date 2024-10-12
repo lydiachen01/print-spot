@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
+import { resolve } from 'path';
 
 const nextConfig = {
     webpack: config => {
         // Add path alias for '@'
-        config.resolve.alias['@'] = path.resolve(__dirname, 'src'); // Adjust if your source directory is different
+        config.resolve.alias['@'] = resolve(__dirname, 'src'); // Adjust if your source directory is different
 
         config.resolve.fallback = {
             fs: false,
@@ -21,4 +21,4 @@ const nextConfig = {
     reactStrictMode: true
 };
 
-module.exports = nextConfig;
+export default nextConfig;

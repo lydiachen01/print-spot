@@ -72,13 +72,15 @@ const MapComponent: React.FC = () => {
     }, [center.lng, center.lat, zoom]);
 
     return (
-        <div style={mapWrap}>
-            <div ref={mapContainer} style={mapStyle} />
-            {/* <div style={legends}>
-                <HistoryTab />
-                <Modal />
-            </div> */}
-        </div>
+        <>
+            <div style={mapWrap}>
+                <div ref={mapContainer} style={mapStyle} />
+                {/* <div style={legends}>
+                    <HistoryTab />
+                    <Modal />
+                </div> */}
+            </div>
+        </>
     );
 };
 
