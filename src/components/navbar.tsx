@@ -89,7 +89,7 @@ const Navbar:React.FC = () => {
                     <div className="flex space-x-4">
                         <Link href="/#link1" className="hover:underline">Tufts University</Link>
                     </div>
-                    <Logo />
+                    <Logo theme="light"/>
                     <div>
                         <button className="px-4 py-2 rounded bg-black text-white ml-4">Login</button>
                     </div>
