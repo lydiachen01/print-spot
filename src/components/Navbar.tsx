@@ -84,7 +84,7 @@ const Navbar:React.FC = () => {
                     </Drawer>
                 </nav>
             ) : (
-                <nav className="flex justify-between items-center py-4 px-12 text-[#D62839]">
+                <nav className="flex justify-between items-center py-4 px-12">
                     <div className="flex-1 flex justify-start">
                         <Link href="/#link1" className="hover:underline">Tufts University</Link>
                     </div>
@@ -92,7 +92,7 @@ const Navbar:React.FC = () => {
                         <Logo theme="light" />
                     </div>
                     <div className="flex-1 flex justify-end">
-                        <button className="px-6 py-2 rounded bg-[#D62839] text-white">Login</button>
+                        <button className="px-6 py-2 rounded bg-black text-white">Login</button>
                     </div>
                 </nav>
             )}
