@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 // import MobileTab from '@/components/MobileTab';
 // import MobileDrawer from '@/components/MobileDrawer';
-import LaptopModal from '@/components/LaptopModal';
+import LaptopModal from '@/components/PopupModal';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 
@@ -17,7 +17,7 @@ const Homepage: React.FC = () => {
         <div>
             <Navbar />
             <MapComponent />
-            <LaptopModal />
+            {/* <LaptopModal /> */}
             {/* <MobileDrawer /> */}
             {/* <Modal /> */}
             <Footer />

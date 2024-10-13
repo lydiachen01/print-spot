@@ -1,5 +1,6 @@
-import Image from "next/image";
-import Link from "next/link";
+import Link from 'next/link';
+import React from 'react';
+import Image from 'next/image';
 
 interface LogoProps {
     theme: string;
@@ -10,18 +11,18 @@ const Logo: React.FC<LogoProps> = ({ theme }) => {
 
     return (
         <Link href="/" passHref>
-            <a className="font-bold text-2xl flex items-center">
+            <div className="font-bold text-2xl flex items-center">
                 <span>PRINT</span>
                 <Image 
                     src={logoURL} 
-                    className="mx-0.5 h-[22px]" 
+                    className="mx-0.5" 
                     alt="marker" 
-                    width={22} 
-                    height={22} 
-                    loading="lazy" // Lazy load the image
+                    width={20} 
+                    height={20} 
+                    loading="lazy" 
                 />
                 <span>SPOT</span>
-            </a>
+            </div>
         </Link>
     );
 }

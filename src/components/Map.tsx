@@ -3,18 +3,17 @@ import React, { useRef, useEffect, useState } from 'react';
 import { MaptilerLayer } from "@maptiler/leaflet-maptilersdk";
 import L, { Map, Icon } from "leaflet"; // Import Map and Icon from Leaflet
 import "leaflet/dist/leaflet.css";
-// import ReactDOM from 'react-dom';
-// import Modal from './LaptopModal';
+import { createRoot } from 'react-dom/client';
+import Modal from './PopupModal';
 // import LaptopModal from './LaptopModal';
-// import HistoryTab from './HistoryTab';
-
+import HistoryTab from './HistoryTab';
 import { CSSProperties } from 'react';
+import AddPrinterBtn from './AddPrinterBtn';
 
 const mapWrap: CSSProperties = {
     position: 'relative',
     margin: 'auto',
-    width: '90%',
-    height: '90vh'
+    height: '93vh'
 };
 
 const mapStyle: CSSProperties = {
@@ -23,15 +22,19 @@ const mapStyle: CSSProperties = {
     height: '100%'
 };
 
-// const legends = {
-//     position: "absolute", // Changed to absolute for better control
-//     bottom: '10px',       // Positioning the legends at the bottom
-//     right: '10px',        // Adjust as needed
-//     zIndex: 1000,         // Ensure it stays on top of the map
-//     backgroundColor: 'rgba(255, 255, 255, 0.8)', // Add a semi-transparent background
-//     padding: '10px',
-//     borderRadius: '5px'
-// }
+const historyTabStyle: CSSProperties = {
+    position: "absolute", 
+    top: '20px',       
+    right: '30px',    
+    zIndex: 1000
+}
+
+const printerBtnStyle: CSSProperties = {
+    position: "absolute", 
+    bottom: '50px',       
+    right: '30px',    
+    zIndex: 1000
+}
 
 const MapComponent: React.FC = () => {
     const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -44,7 +47,8 @@ const MapComponent: React.FC = () => {
 
         mapInstance.current = L.map(mapContainer.current, {
             center: [center.lat, center.lng],
-            zoom: zoom
+            zoom: zoom,
+            scrollWheelZoom: false
         });
 
         new MaptilerLayer({
@@ -53,16 +57,24 @@ const MapComponent: React.FC = () => {
 
         const PrinterIcon = new Icon({
             iconUrl: 'icons8-printer-48.png',
-            iconSize: [40, 40],
-            iconAnchor: [20, 40],
-            popupAnchor: [0, -40]
+            iconSize: [30, 30],
+            iconAnchor: [15, 0],
+            popupAnchor: [0, 0]
         });
 
-        const openModel = () => {
-            // const popup = L.popup();
-            // popup.setLatLng(e.latlng).setContent('<div id="popupContainer"></div>').openOn(mapInstance.current!);
-            // ReactDOM.render(<Modal />, document.getElementById('popupContainer'));
-            console.log("Finished handling click")
+        const openModel = (e: L.LeafletMouseEvent) => {
+            const popup = L.popup();
+            popup.setLatLng(e.latlng).setContent('<div id="popupContainer"></div>').openOn(mapInstance.current!);
+            const container = document.getElementById('popupContainer');
+            if (container) {
+                // Stop event propagation to prevent the popup from closing
+                container.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                });
+
+                const root = createRoot(container);
+                root.render(<Modal />);
+            }
         }
 
         L.marker([center.lat, center.lng], { icon: PrinterIcon })
@@ -74,11 +86,13 @@ const MapComponent: React.FC = () => {
     return (
         <>
             <div style={mapWrap}>
-                <div ref={mapContainer} style={mapStyle} />
-                {/* <div style={legends}>
+                <label style={historyTabStyle}>
                     <HistoryTab />
-                    <Modal />
-                </div> */}
+                </label>
+                <label style={printerBtnStyle}>
+                    <AddPrinterBtn />
+                </label>
+                <div ref={mapContainer} style={mapStyle} />
             </div>
         </>
     );

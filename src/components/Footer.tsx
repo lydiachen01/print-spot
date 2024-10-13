@@ -2,18 +2,25 @@ import Logo from "./Logo"
 
 const Footer : React.FC= () => {
     return (
-        <div className="bg-black pb-24 pt-20 px-20 grid md:grid-cols-3">
-            <div className="text-white">
+        <div className="bg-[#FFC300] pb-24 pt-20 px-20 md:px-32 grid md:grid-cols-3 text-[#D62839]">
+            <div>
                 <Logo theme="dark"/>
-                <p className="pt-6 text-gray-400">
+                <p className="pt-6">
                     In a rush? No idea where the nearest printer is? 
-                    <br/><label className="font-bold italic underline">PrintSpot</label> will fix that ✨✉️</p>
+                    <br/><label className="font-bold italic underline">PrintSpot</label> will fix that! 📬</p>
 
-                <p className="pt-3 text-gray-600 italic"> Print with ease!</p>
-                <p className="pt-10 text-gray-500">© 2024 NoShenagians Inc.</p>
+                <p className="pt-3 italic"> Print with ease!</p>
+                <p className="pt-10">© 2024 Created By LXC</p>
             </div>
-            <div></div>
-            <div></div>
+            {/* <ul className="text-center">
+                <li className="font-bold pb-5">Product</li>
+                <li className="pb-2">Product</li>
+                <li className="pb-2">Product</li>
+                <li className="pb-2">Product</li>
+            </ul>
+            <ul className="text-center">                 */}
+                {/* <li className="font-bold pb-5">Socials</li> */}
+            {/* </ul> */}
         </div>
     )
 }
